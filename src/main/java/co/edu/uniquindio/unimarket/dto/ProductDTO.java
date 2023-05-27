@@ -44,4 +44,6 @@ public class ProductDTO {
     @NotBlank(message = "Las imagenes no pueden ser vacio")
     private List<ImageDTO> images;
 
+
+
 }

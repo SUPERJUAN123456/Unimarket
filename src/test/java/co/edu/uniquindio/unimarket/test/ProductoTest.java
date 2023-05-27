@@ -52,7 +52,7 @@ public class ProductoTest {
                 "Xbox One",
                 "Xbox one en perfecto estado",
                 1,
-                1500000,
+                1500000F,
                 "1004684293",
                 1,
                 0,
@@ -72,7 +72,7 @@ public class ProductoTest {
 
         Map<String, String> images = new HashMap<>();
         images.put("1", "http://www.google.com/images/imageNew1");
-        images.put("1", "http://www.google.com/images/imageNew2");
+        images.put("2", "http://www.google.com/images/imageNew2");
 
         Product updateProduct = productInterface.getProduct(1);
 
