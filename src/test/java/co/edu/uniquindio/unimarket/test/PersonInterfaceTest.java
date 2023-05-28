@@ -30,20 +30,20 @@ public class PersonInterfaceTest {
     public void registerPerson(){
 
         PersonDTO personDTO = new PersonDTO();
-        personDTO.setAdress("Villa Andrea");
-        personDTO.setEmail("caloasd@hotmail.com");
+        personDTO.setAdress("La Fachada");
+        personDTO.setEmail("sisas123@hotmail.com");
         personDTO.setCity("Armenia");
         personDTO.setCountry("Colombia");
-        personDTO.setName("Andres Felipe");
-        personDTO.setPassword("1234");
-        personDTO.setId("41923616");
-        personDTO.setCellphoneNumber("3233609162");
+        personDTO.setName("Juan Fernando");
+        personDTO.setPassword("12345");
+        personDTO.setId("1001001001");
+        personDTO.setCellphoneNumber("3005253342");
 
         try {
             //Guardamos el registro
             String idNewPerson = personInterface.registerPerson(personDTO);
             //Comprobamos que si haya quedado guardado
-            Assertions.assertEquals("41923616", idNewPerson);
+            Assertions.assertEquals("1001001001", idNewPerson);
             System.out.println("Se Creo con exito");
 
         } catch (Exception e) {
@@ -56,14 +56,14 @@ public class PersonInterfaceTest {
     public void updatePerson(){
         try {
             //Obtenemos un registro de la base de datos y le cambiamos por ejemplo el nombre
-            PersonGetDTO personGetDTO = personInterface.getPersonDTO("1004684293");
-            personGetDTO.setName("Mario");
+            PersonGetDTO personGetDTO = personInterface.getPersonDTO("1005088944");
+            personGetDTO.setName("Juanes");
             //Actualizamos la persona
-            personInterface.updatePerson("1004684293", personGetDTO);
+            personInterface.updatePerson("1005088944", personGetDTO);
 
             //Obtenemos la persona con el id dado y verificamos que si haya sido modificado
-            PersonGetDTO consulta = personInterface.getPersonDTO("1004684293");
-            Assertions.assertEquals("Mario", consulta.getName());
+            PersonGetDTO consulta = personInterface.getPersonDTO("1005088944");
+            Assertions.assertEquals("Juanes", consulta.getName());
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -73,7 +73,7 @@ public class PersonInterfaceTest {
     @Test
     @Sql("classpath:dataset.sql" )
     public void getPerson() throws Exception {
-        PersonGetDTO personGetDTO = personInterface.getPersonDTO("1004684293");
+        PersonGetDTO personGetDTO = personInterface.getPersonDTO("1005088944");
         Assertions.assertNotNull(personGetDTO);
     }
 
@@ -83,14 +83,14 @@ public class PersonInterfaceTest {
 
         PasswordDTO passwordDTO = new PasswordDTO("10055","10055");
 
-        Person personOld = personInterface.getPerson("1004684293");
+        Person personOld = personInterface.getPerson("1005088944");
 
         String oldPassword = personOld.getPassword();
 
 
         personInterface.changeOldPassword(personOld.getId(),passwordDTO);
 
-        String newPassword = personRepo.findPersonByEmail("pipecar366@gmail.com").getPassword();
+        String newPassword = personRepo.findPersonByEmail("juanesmosquera23@gmail.com").getPassword();
 
 
         Assertions.assertNotEquals(oldPassword,newPassword);
@@ -102,12 +102,12 @@ public class PersonInterfaceTest {
 
         PasswordDTO passwordDTO = new PasswordDTO("1230302","1230302");
 
-        String oldPassword = personRepo.findPersonByEmail("pipecar366@gmail.com").getPassword();
+        String oldPassword = personRepo.findPersonByEmail("juanesmosquera23@gmail.com").getPassword();
 
 
-        personInterface.changePasswordRecuperated("pipecar366@gmail.com",passwordDTO);
+        personInterface.changePasswordRecuperated("juanesmosquera23@gmail.com",passwordDTO);
 
-        String newPassword = personRepo.findPersonByEmail("pipecar366@gmail.com").getPassword();
+        String newPassword = personRepo.findPersonByEmail("juanesmosquera23@gmail.com").getPassword();
 
         Assertions.assertNotEquals(oldPassword,newPassword);
     }

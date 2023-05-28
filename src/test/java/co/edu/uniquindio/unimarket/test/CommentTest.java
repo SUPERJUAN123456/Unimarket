@@ -25,9 +25,9 @@ public class CommentTest {
     public void createComment() throws Exception {
         CommentDTO commentDTO = new CommentDTO(
           5,
-          "Muy buen producto",
+          "Producto recomendado",
           1,
-          "1004684293"
+          "1005088944"
         );
 
         int codigoComentario = commentInterface.createComment(commentDTO);

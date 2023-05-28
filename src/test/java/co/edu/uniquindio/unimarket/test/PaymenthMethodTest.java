@@ -26,12 +26,12 @@ public class PaymenthMethodTest {
     public void createPaymentMethod() throws Exception {
 
         PaymentMethodDTO paymentMethodDTO = new PaymentMethodDTO(
-                "Andres Felipe Castro Cardona",
+                "Juan Esteban Mosquera Zapata",
                 "BBVA",
                 "12030123012",
                 LocalDate.now().plusYears(2),
                 787,
-                "1004684293"
+                "1005088944"
         );
 
        int idPaymentMethod = paymentMethodInterface.createPaymentMethod(paymentMethodDTO);
@@ -49,19 +49,19 @@ public class PaymenthMethodTest {
         PaymentMethodGetDTO paymentMethodGetDTO = new PaymentMethodGetDTO(
                 1,
                 "BBVA",
-                "Andres Felipe Castro Cardona",
-                "673812399",
+                "Juan Esteban Mosquera Zapata",
+                "123456789",
                 LocalDate.now().plusYears(2),
                 879,
                 true,
-                "1004684293"
+                "1005088944"
         );
 
         paymentMethodInterface.updatePaymentMethod(idPaymentMethod,paymentMethodGetDTO);
 
         PaymentMethodGetDTO paymentMethodGetDTONew = paymentMethodInterface.getPaymentMethodDTO(idPaymentMethod);
 
-        Assertions.assertEquals("673812399",paymentMethodGetDTONew.getCardNumber());
+        Assertions.assertEquals("123456789",paymentMethodGetDTONew.getCardNumber());
 
     }
 
@@ -80,7 +80,7 @@ public class PaymenthMethodTest {
     @Sql("classpath:dataset.sql")
     public void listPaymentMethodByPerson() {
 
-        List<PaymentMethodGetDTO> listPaymentMethods = paymentMethodInterface.listPaymentMethodByPerson("1004684293");
+        List<PaymentMethodGetDTO> listPaymentMethods = paymentMethodInterface.listPaymentMethodByPerson("1005088944");
         Assertions.assertFalse(listPaymentMethods.isEmpty());
 
     }

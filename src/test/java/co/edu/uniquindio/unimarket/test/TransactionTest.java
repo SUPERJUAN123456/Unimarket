@@ -35,7 +35,7 @@ public class TransactionTest {
         listTransactionDetails.add(transactionDetailDTO);
 
         TransactionDTO transactionDTO = new TransactionDTO(
-                "1004684293",
+                "1005088944",
                 1,
                  listTransactionDetails
         );
@@ -47,7 +47,7 @@ public class TransactionTest {
     @Test
     @Sql("classpath:dataset.sql")
     public void listTransaction() {
-        List<TransactionGetDTO> listTransaction = transactionInterface.listTransactionByPerson("1004684293");
+        List<TransactionGetDTO> listTransaction = transactionInterface.listTransactionByPerson("1005088944");
         System.out.println(listTransaction);
         Assertions.assertFalse(listTransaction.isEmpty());
     }

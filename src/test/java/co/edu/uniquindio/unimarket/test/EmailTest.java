@@ -14,7 +14,7 @@ public class EmailTest {
     @Test
     public void sedEmail() {
         try {
-            emailInterface.sendEmail(new EmailDTO("Cloudinary 2", "hola!", "pipecar366@gmail.com"));
+            emailInterface.sendEmail(new EmailDTO("Cloudinary 2", "hola!", "juanesmosquera23@gmail.com"));
         } catch (Exception e) {
             e.printStackTrace();
         }

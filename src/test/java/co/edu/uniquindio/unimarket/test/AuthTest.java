@@ -32,7 +32,7 @@ public class AuthTest {
     @Sql("classpath:dataset.sql")
     public void login() throws Exception {
 
-        SesionDTO sesionDTO = new SesionDTO("pipecar366@gmail.com","1234");
+        SesionDTO sesionDTO = new SesionDTO("juanesmosquera23@gmail.com","1234");
 
         TokenDTO tokenDTO = sesionInterface.login(sesionDTO);
 

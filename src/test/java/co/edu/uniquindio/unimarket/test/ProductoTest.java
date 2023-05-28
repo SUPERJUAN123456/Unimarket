@@ -40,7 +40,7 @@ public class ProductoTest {
     @Sql("classpath:dataset.sql")
     public void createProduct() throws Exception {
 
-        Person person = personInterface.getPerson("1004684293");
+        Person person = personInterface.getPerson("1005088944");
 
         //Se crea la colección de imágenes para el producto.
         Map<String, String> images = new HashMap<>();
@@ -49,11 +49,11 @@ public class ProductoTest {
 
         //Se crea el producto y se usa el código dado por el servicio de registro de usuario para asignar el vendedor
         ProductDTO productoDTO = new ProductDTO(
-                "Xbox One",
-                "Xbox one en perfecto estado",
+                "Computador Gamer",
+                "El pc esta en perfecto funcionamiento",
                 1,
-                1500000F,
-                "1004684293",
+                1500000,
+                "1005088944",
                 1,
                 0,
                 images
@@ -72,26 +72,26 @@ public class ProductoTest {
 
         Map<String, String> images = new HashMap<>();
         images.put("1", "http://www.google.com/images/imageNew1");
-        images.put("2", "http://www.google.com/images/imageNew2");
+        images.put("1", "http://www.google.com/images/imageNew2");
 
         Product updateProduct = productInterface.getProduct(1);
 
         ProductGetDTO productGetDTO = new ProductGetDTO(
                 1,
                 LocalDate.now().plusDays(30),
-                "Play 3",
+                "Nintendo Switch",
                 15000,
-                "Nuevo play 3",
+                "Nintendo switch nueva version",
                 2,
                 1500000,
                 1500000,
-                "1004684293",
+                "1005088944",
                 1,
                 0,
                 StateProduct.PENDIENTE_REVISION,
                 LocalDate.now(),
                 images
-                );
+        );
 
         productInterface.updateProduct(updateProduct.getId(), productGetDTO);
 
@@ -119,13 +119,13 @@ public class ProductoTest {
         ProductGetDTO productGetDTO = new ProductGetDTO(
                 1,
                 LocalDate.now().plusDays(30),
-                "Play 3",
+                "Nintendo Switch",
                 15000,
-                "Nuevo play 3",
+                "Nintendo switch nueva version",
                 2,
                 1500000,
                 1500000,
-                "1004684293",
+                "1005088944",
                 1,
                 0,
                 StateProduct.APROBADO,
@@ -158,7 +158,7 @@ public class ProductoTest {
     @Test
     @Sql("classpath:dataset.sql")
     public void listProductByPerson() {
-        List<ProductGetDTO> listProduct = productInterface.listPersonProduct("1004684293");
+        List<ProductGetDTO> listProduct = productInterface.listPersonProduct("1005088944");
         Assertions.assertFalse(listProduct.isEmpty());
     }
     @Test
@@ -184,7 +184,7 @@ public class ProductoTest {
     @Test
     @Sql("classpath:dataset.sql")
     public void listProductFavorite() {
-        List<ProductGetDTO> listProduct = productInterface.listFavoriteProduct("1004684293");
+        List<ProductGetDTO> listProduct = productInterface.listFavoriteProduct("1005088944");
         Assertions.assertFalse(listProduct.isEmpty());
     }
     @Test
@@ -200,7 +200,7 @@ public class ProductoTest {
 
         boolean flagFavorite = false;
 
-        String idPerson = "1004684293";
+        String idPerson = "1005088944";
         int idProduct = 1;
 
         Product product = productInterface.getProduct(idProduct);
@@ -224,7 +224,7 @@ public class ProductoTest {
 
         boolean flagFavorite = false;
 
-        String idPerson = "1004684293";
+        String idPerson = "1005088944";
         int idProduct = 4;
 
         Product product = productInterface.getProduct(idProduct);
