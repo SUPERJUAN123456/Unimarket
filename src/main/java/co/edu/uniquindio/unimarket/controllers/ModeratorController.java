@@ -26,5 +26,9 @@ public class ModeratorController {
         productInterface.reviewProduct(idProduct,productGetDTO);
         return ResponseEntity.status(HttpStatus.OK).body( new MessageDTO(HttpStatus.OK, false,"Producto revisado correctamente"));
     }
+    @GetMapping("/obtener_productos")
+    public ResponseEntity<MessageDTO> listAllProducts() throws Exception{
+        return ResponseEntity.status(HttpStatus.OK).body( new MessageDTO(HttpStatus.OK, false,productInterface.listAllProducts()));
+    }
 
 }

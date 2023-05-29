@@ -37,8 +37,10 @@ public class WebSecurityConfig {
                 "/api/productos/obtener_productos_categoria/**",
                 "/api/productos/obtener_productos_precio/**",
                 "/api/productos/obtener_productos_titulo/**",
-                "/api/categorias/obtener"
-,                "/api/categorias/obtener/**"
+                "/api/categorias/obtener",
+                "/api/categorias/obtener/**",
+                "/api/personas/restaurar_contraseña/**",
+                "/api/personas/recuperar_contraseña"
         ).permitAll().anyRequest().authenticated();
 
         //http.authorizeHttpRequests().anyRequest().permitAll();

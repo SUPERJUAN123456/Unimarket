@@ -21,7 +21,11 @@ public interface ProductRepo extends JpaRepository<Product, Integer> {
 
     @Query("select p from Product p join p.userFavorite f where f.id = :idPerson and p.state = 0")
     List<Product> listFavoriteProduct(String idPerson);
+
     @Query("select p from Product p where p.state = 0")
+    List<Product>listAllProductApproved();
+
+    @Query("select p from Product p")
     List<Product>listAllProduct();
     @Query("select p from Product p where p.price between :minPrice and :maxPrice and p.state = 0 ")
     List<Product> listProductByPrice(float minPrice, float maxPrice);
@@ -31,4 +35,6 @@ public interface ProductRepo extends JpaRepository<Product, Integer> {
 
     @Query("select p from Product p where p.user.id = :idPerson and p.state = 0")
     List<Product> listProductByPerson(String idPerson);
+
+
 }
